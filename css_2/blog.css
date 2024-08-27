@@ -1,0 +1,129 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: poppins;
+}
+body{
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+#blogy{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0px;
+    background-color: pink;
+
+}
+.headingb h3{
+    font-size: 2.4rem;
+    color: dark rgb(129, 12, 129);
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 2.4rem;
+}
+.headingb strong{
+    color: blue;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.3;
+}
+.blogy-box-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.blogy-box{
+    max-width: 350px;
+    width: 100%;
+    /* height:100%; */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    transition: all ease 0.3s;
+}
+.blogy-box:hover{
+    background-color: pink;
+    box-shadow: 16px 20px 50px rgba(0,0,0,0,.12);
+}
+.blogy-box-img{
+    width: 100%;
+    /* height:auto; */
+    /* max-height: 100%; */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    transition: all ease 0.3s ;
+    align-items: center;
+}
+/* .blogy-box-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+} */
+
+.blogy-box-img img {
+    width: 100%; /* Make the image take the full width of its container */
+    height: auto; /* Maintain the image aspect ratio */
+    object-fit: contain; /* Ensures the image covers the container */
+    object-position: center; 
+    display:block;
+}
+
+.blogy-img-link{
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color:rgb(2, 25, 45); 
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    box-shadow: 2px 2px 30px rgba(20, 97,212, 0.12);
+    animation: fade 0.3s;
+}
+.blogy-box-text {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 10px 20px 10px;
+    position: relative;
+    z-index: 10; 
+    margin-top: 10px;
+    color: blue;
+}
+
+.blogy-box:hover .blogy-box-img a{
+    display: flex;
+}
+
+.blogy-box:hover .blogy-box-img{
+filter: blur(2px);
+}
+
+/* @keyframes fade {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    };
+} */
