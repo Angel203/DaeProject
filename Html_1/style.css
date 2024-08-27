@@ -1,8 +1,9 @@
-body{
+.homeBody {
     align-items: center;
     text-align: center;
-}
-img{
+} 
+
+img {
     height: 200px;
     width: 300px;
 }
@@ -18,34 +19,74 @@ footer {
     position: absolute;
     bottom: 0;
     left: 50%;
-    border: 20px solid black;
-    padding: 50 10 50 10;
+    border: 10px solid black;
+    padding: 10px 5px 10px 5px;   /* Every Value needs a unit padding: value  50 px is a unit*/
     transform: translateX(-50%);
     margin: 20px 0 20px 0;   /* top right bottom left */
     background-color: blueviolet;
-   
 }
-code{
+
+code {
     color: pink
 }
-table{
+
+table {
     font-family: 'Times New Roman';
     border-collapse: collapse;
     width: 100%;
 }
 
-td, th{
+td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
-
 }
-tr:nth-child(odd){
+
+tr:nth-child(odd) {
     background-color: #dddddd;
 }
+
 video{
   width: 200px;
   height: 250px;  
 }
-/*universal for the whole page*/
+/* ------------------------------- Specific screen (1024) ----------------------------------- */
+@media screen and (min-width: 1024px) {
+    .homeBody {
+        border: 1px solid palevioletred;
+        width: 80%;
+        background-color: red;
+        margin: auto;
+    } 
+}
+
+/* ------------------------------- Tablet screen ----------------------------------- */
+@media screen and ( min-width : 768px ) and ( max-width : 1023px ) { 
+    .homeBody {
+        background-color: yellow;
+        width: 70%;
+        font-size: large;
+    }
+}
+
+/* ------------------------------- mobile screen ----------------------------------- */
+@media  screen and (max-width: 767px) {
+
+    .homeBody{
+        background-color: green;
+        width: 100%;
+        /* font-size: large; */
+    }
+
+    p{
+        font-size: large;
+    }
+
+    footer{
+        padding: 20 5 20 5;
+
+    }
+
+}
+ /*universal for the whole page*/
 
