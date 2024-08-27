@@ -1,8 +1,8 @@
-body{
+body {
     align-items: center;
     text-align: center;
 }
-img{
+img {
     height: 200px;
     width: 300px;
 }
@@ -25,27 +25,44 @@ footer {
     background-color: blueviolet;
    
 }
-code{
+code {
     color: pink
 }
-table{
+table {
     font-family: 'Times New Roman';
     border-collapse: collapse;
     width: 100%;
 }
 
-td, th{
+td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
 
 }
-tr:nth-child(odd){
+tr:nth-child( odd ) {
     background-color: #dddddd;
 }
-video{
+video {
   width: 200px;
   height: 250px;  
 }
 /*universal for the whole page*/
+
+.col {
+    border: solid black 3px;
+}
+
+.row{
+    background-color: blue;
+    border: solid black;
+}
+
+.moRows{
+    color: red;
+}
+
+.card_1{
+    background-color: pink;
+}
 

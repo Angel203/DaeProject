@@ -4,7 +4,7 @@
     box-sizing: border-box;
     font-family: poppins;
 }
-body{
+.blogyBody{
     align-items: center;
 }
 
@@ -102,6 +102,7 @@ ul{
     animation: fade 0.3s;
 }
 .blogy-box-text {
+    align-items: center;
     display: flex;
     flex-direction: column;
     padding: 30px 10px 20px 10px;
@@ -118,6 +119,27 @@ ul{
 .blogy-box:hover .blogy-box-img{
 filter: blur(2px);
 }
+/*Desktop screen*/
+@media screen and(min-width: 1024){
+   .blogyBody{
+    width: 80%;
+    margin: auto;
+   } 
+}
+/*Table screen*/
+@media screen and (min-width: 768px) and (max-width: 1023px){
+    .blogyBody{
+        width: 70%;
+
+    }
+}
+/*mobil screen*/
+@media  screena and (max-width: 767px){
+    .blogyBody{
+        width: 100%;
+    }
+}
+
 
 /* @keyframes fade {
     0%{
