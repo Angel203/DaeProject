@@ -35,6 +35,9 @@ table {
     border-collapse: collapse;
     width: 100%;
 }
+#table{
+    align-items: center;
+}
 
 td, th {
     border: 1px solid #dddddd;

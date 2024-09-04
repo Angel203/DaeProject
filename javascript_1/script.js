@@ -1,4 +1,4 @@
-alert("Welcome to my page");
+// alert("Welcome to my page");
 
 let birthdayYear = 1988;
 let birthMonth = "Septemeber"
