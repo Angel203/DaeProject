@@ -1,0 +1,16 @@
+.card{
+    background-color: antiquewhite;
+    border: solid black 4px;
+    margin: 20px;
+    padding: 15px;
+}
+h1{
+    color: blueviolet;
+}
+p{
+    color: rgb(51, 198, 242);
+}
+img{
+    width: 200px;
+    border-radius: 50%;
+}
