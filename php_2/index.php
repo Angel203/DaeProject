@@ -1,39 +1,52 @@
 <?php
-// Database connection
-$servername = "localhost"; // Corrected: no need for the full URL or port
-$username = "root"; // Default MAMP MySQL username
-$password = "root"; // Default MAMP MySQL password
-$database = "shalom_wellness"; // Your database name
+// Define constants for the database connection
+define("DB_SERVER", "localhost");  // Database server address
+define("DB_USERNAME", "root");     // Default MAMP MySQL username
+define("DB_PASSWORD", "root");     // Default MAMP MySQL password
+define("DB_DATABASE", "shalom_wellness");  // Database name
 
-$conn = new mysqli($servername, $username, $password, $database);
+// Create a connection to the database
+$conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+// Function to add a new client
+function addClient($full_name, $email, $phone, $conn) {
+    $stmt = $conn->prepare("INSERT INTO clients (full_name, email, phone_number) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $full_name, $email, $phone);
+    return $stmt->execute();
+}
+
 // Handle form submission to add a new client
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_client'])) {
     $full_name = $_POST['full_name'];
     $email = $_POST['email'];
-    $phone = $_POST['phone'];
-
-    // Insert data into the database
-    $stmt = $conn->prepare("INSERT INTO clients (full_name, email, phone_number) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $full_name, $email, $phone);
-
-
-    if ($stmt->execute()) {
+    $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
+    
+    if (addClient($full_name, $email, $phone, $conn)) {
         echo "<p style='color: green;'>Client added successfully!</p>";
     } else {
         echo "<p style='color: red;'>Error: " . $stmt->error . "</p>";
     }
-
-    $stmt->close();
 }
 
 // Fetch all clients from the database
 $result = $conn->query("SELECT * FROM clients");
+
+// Define an associative array for client data (for demonstration purposes)
+$clients_data = [
+    "John Doe" => ["email" => "johndoe@example.com", "phone" => "123-456-7890"],
+    "Jane Smith" => ["email" => "janesmith@example.com", "phone" => "234-567-8901"]
+];
+
+// Define a multi-dimensional array for drink preferences (for demonstration purposes)
+$drinks = [
+    "Save Your Breath" => ["Pineapple", "Orange", "Lemon"],
+    "Embrace Yourself" => ["Carrot", "Orange", "Ginger"]
+];
 ?>
 
 <!DOCTYPE html>
@@ -88,6 +101,18 @@ $result = $conn->query("SELECT * FROM clients");
             <?php endif; ?>
         </tbody>
     </table>
+
+    <h2>Clients (Associative Array Example)</h2>
+    <!-- Display client data from associative array -->
+    <?php foreach ($clients_data as $name => $info): ?>
+        <p>Client: <?= $name ?><br>Email: <?= $info['email'] ?><br>Phone: <?= $info['phone'] ?></p>
+    <?php endforeach; ?>
+
+    <h2>Drink Preferences (Multi-dimensional Array Example)</h2>
+    <!-- Display drinks and their ingredients from multi-dimensional array -->
+    <?php foreach ($drinks as $drink => $ingredients): ?>
+        <p>Drink: <?= $drink ?><br>Ingredients: <?= implode(", ", $ingredients) ?></p>
+    <?php endforeach; ?>
 </body>
 </html>
 
